@@ -1,11 +1,15 @@
-function App() {
+import { useWallet } from '@solana/wallet-adapter-react';
+
+export default function App() {
+  const wallet = useWallet();
+
+  const { publicKey } = wallet;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>solana-amm-swap-exercise</p>
-      </header>
-    </div>
+    wallet.connected && (
+      <div>
+        <p>address: {publicKey.toBase58()}</p>
+      </div>
+    )
   );
 }
-
-export default App;
