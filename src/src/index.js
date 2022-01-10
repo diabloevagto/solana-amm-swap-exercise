@@ -1,6 +1,3 @@
-import React, { useMemo } from 'react';
-import ReactDOM from 'react-dom';
-
 import {
   ConnectionProvider,
   WalletProvider,
@@ -17,6 +14,11 @@ import {
   WalletMultiButton,
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
+import React, { useMemo } from 'react';
+import ReactDOM from 'react-dom';
+
+import { WrapContext } from 'src/store';
+import WalletUpdate from 'src/store/wallet';
 
 import App from './App';
 
@@ -57,9 +59,12 @@ const Wrap = (props) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Wrap>
-      <App />
-    </Wrap>
+    <WrapContext>
+      <Wrap>
+        <WalletUpdate />
+        <App />
+      </Wrap>
+    </WrapContext>
   </React.StrictMode>,
   document.getElementById('root'),
 );
