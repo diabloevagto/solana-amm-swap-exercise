@@ -11,16 +11,14 @@ export default function App() {
   const { publicKey } = wallet;
 
   return (
-    wallet.connected && (
-      <div>
-        <p>address: {publicKey.toBase58()}</p>
-        <p>sol balance: {solBalance}</p>
-        {Object.keys(tokenAccounts).map((k) => (
-          <p key={k}>
-            {TokenMap[k]?.symbol}: {tokenAccounts[k].balance.format()}
-          </p>
-        ))}
-      </div>
-    )
+    <div>
+      <p>address: {publicKey.toBase58()}</p>
+      <p>sol balance: {solBalance}</p>
+      {Object.keys(tokenAccounts).map((k) => (
+        <p key={k}>
+          {TokenMap[k]?.symbol}: {tokenAccounts[k].balance.format()}
+        </p>
+      ))}
+    </div>
   );
 }

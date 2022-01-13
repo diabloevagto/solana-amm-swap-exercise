@@ -72,7 +72,7 @@ export default function WalletUpdate() {
     return () => {
       clearInterval(id);
     };
-  }, [connection, dispatch, wallet.publicKey, wallet.connected]);
+  }, [connection, dispatch, wallet.connected, wallet.publicKey]);
 
   return <></>;
 }

@@ -1,6 +1,7 @@
 import {
   ConnectionProvider,
   WalletProvider,
+  useWallet,
 } from '@solana/wallet-adapter-react';
 import {
   LedgerWalletAdapter,
@@ -21,10 +22,24 @@ import { WrapContext } from 'src/store';
 import WalletUpdate from 'src/store/wallet';
 
 import App from './App';
+import Swap from './Swap';
 
 import '@solana/wallet-adapter-react-ui/styles.css';
 
-const Wrap = (props) => {
+const AppContent = () => {
+  const wallet = useWallet();
+
+  return (
+    wallet.connected && (
+      <>
+        <App />
+        <Swap />
+      </>
+    )
+  );
+};
+
+const ConnectionWrap = (props) => {
   const network = WalletAdapterNetwork.Mainnet;
 
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
@@ -60,10 +75,10 @@ const Wrap = (props) => {
 ReactDOM.render(
   <React.StrictMode>
     <WrapContext>
-      <Wrap>
+      <ConnectionWrap>
         <WalletUpdate />
-        <App />
-      </Wrap>
+        <AppContent />
+      </ConnectionWrap>
     </WrapContext>
   </React.StrictMode>,
   document.getElementById('root'),
