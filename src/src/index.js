@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import {
   ConnectionProvider,
   WalletProvider,
@@ -74,12 +75,14 @@ const ConnectionWrap = (props) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <WrapContext>
-      <ConnectionWrap>
-        <WalletUpdate />
-        <AppContent />
-      </ConnectionWrap>
-    </WrapContext>
+    <ChakraProvider>
+      <WrapContext>
+        <ConnectionWrap>
+          <WalletUpdate />
+          <AppContent />
+        </ConnectionWrap>
+      </WrapContext>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

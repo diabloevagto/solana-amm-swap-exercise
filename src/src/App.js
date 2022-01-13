@@ -1,5 +1,7 @@
+import { Box } from '@chakra-ui/react';
 import { TokenMap } from 'src/constants';
 import { useContext } from 'react';
+
 import { useWallet } from '@solana/wallet-adapter-react';
 
 import ContextStore from 'src/store';
@@ -12,12 +14,16 @@ export default function App() {
 
   return (
     <div>
-      <p>address: {publicKey.toBase58()}</p>
-      <p>sol balance: {solBalance}</p>
+      <Box bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
+        address: {publicKey.toBase58()}
+      </Box>
+      <Box bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
+        sol balance: {solBalance}
+      </Box>
       {Object.keys(tokenAccounts).map((k) => (
-        <p key={k}>
+        <Box key={k} bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
           {TokenMap[k]?.symbol}: {tokenAccounts[k].balance.format()}
-        </p>
+        </Box>
       ))}
     </div>
   );
