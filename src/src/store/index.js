@@ -5,6 +5,7 @@ const ContextStore = createContext();
 const initStore = {
   solBalance: 0,
   tokenAccounts: {},
+  liquidityPools: {},
   auxiliaryTokenAccounts: [],
 };
 

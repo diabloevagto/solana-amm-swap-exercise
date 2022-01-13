@@ -15,6 +15,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { isEmpty } from 'lodash-es';
 
 import { NATIVE_SOL, TokenMap } from 'src/constants';
 import { useCallback, useContext, useEffect, useState } from 'react';
@@ -27,15 +28,18 @@ import ContextStore from 'src/store';
 export default function Swap() {
   const wallet = useWallet();
   const { connection } = useConnection();
-  const { solBalance, tokenAccounts } = useContext(ContextStore);
+  const { solBalance, tokenAccounts, liquidityPools } =
+    useContext(ContextStore);
   const [fromToken, setFromToken] = useState(NATIVE_SOL.address);
   const [toToken, setToToken] = useState(
     'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // usdc
   );
-  const [fromAmount, setFromAmount] = useState(0);
+  const [fromAmount, setFromAmount] = useState(1);
   const [toAmount, setToAmount] = useState(0);
   const [pool, setPool] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
+  const slippage = 30;
 
   console.log({
     fromToken,
@@ -45,15 +49,33 @@ export default function Swap() {
   });
 
   useEffect(() => {
-    const p = getPoolByTokenMintAddresses(fromToken, toToken);
-    console.log(p);
-    setPool(p);
+    const action = async () => {
+      const p = getPoolByTokenMintAddresses(fromToken, toToken);
+      console.log(p);
 
-    if (!!p) {
-      const f = getSwapOutAmount(p, fromToken, toToken, fromToken, 3);
-      console.log(f);
-    }
-  }, [fromToken, toToken]);
+      const poolWithFees = Object.values(liquidityPools).find(
+        (v) => v.ammId === p?.ammId,
+      );
+      console.log(poolWithFees);
+
+      setPool(poolWithFees);
+
+      if (!!poolWithFees) {
+        const f = getSwapOutAmount(
+          poolWithFees,
+          fromToken,
+          toToken,
+          fromAmount,
+          slippage,
+        );
+
+        setToAmount(f.amountOutWithSlippage.format());
+      }
+    };
+    setIsLoading(true);
+    !isEmpty(liquidityPools) && action();
+    setIsLoading(false);
+  }, [fromAmount, fromToken, liquidityPools, pool?.ammId, toToken]);
 
   const doSwap = useCallback(async () => {
     if (!!pool) {
@@ -170,13 +192,20 @@ export default function Swap() {
         <Button
           color="teal"
           onClick={doSwap}
+          isLoading={isLoading}
           disabled={
-            solBalance < 0.02 || !pool || isNaN(fromAmount) || isNaN(toAmount)
+            isLoading ||
+            solBalance < 0.02 ||
+            !pool ||
+            isNaN(fromAmount) ||
+            isNaN(toAmount)
           }
         >
           swap
         </Button>
       </Center>
+
+      <p>slippage: {slippage}</p>
 
       {solBalance < 0.02 && (
         <Alert status="error">
