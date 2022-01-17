@@ -36,10 +36,10 @@ export default function Swap() {
   );
   const [fromAmount, setFromAmount] = useState(1);
   const [toAmount, setToAmount] = useState(0);
+  const [slippage, setSlippage] = useState(3);
   const [pool, setPool] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-  const slippage = 30;
 
   console.log({
     fromToken,
@@ -204,6 +204,21 @@ export default function Swap() {
           swap
         </Button>
       </Center>
+
+      <FormControl>
+        <FormLabel htmlFor="email">slippage</FormLabel>
+        <Select
+          id="slippage"
+          value={slippage}
+          onChange={(event) => setSlippage(event.target.value)}
+        >
+          {[0.1, 3, 5, 10].map((v) => (
+            <option key={v} value={v}>
+              {v}%
+            </option>
+          ))}
+        </Select>
+      </FormControl>
 
       <p>slippage: {slippage}</p>
 
