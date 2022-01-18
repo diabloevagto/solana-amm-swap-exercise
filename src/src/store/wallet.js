@@ -14,6 +14,7 @@ import { LIQUIDITY_POOLS, getAddressForWhat } from 'src/utils/pools';
 import { MINT_LAYOUT, getBigNumber } from 'src/utils/layouts';
 import { TOKEN_PROGRAM_ID } from '@project-serum/serum/lib/token-instructions';
 import { TokenAmount } from 'src/utils/safe-math';
+import { TokenMap } from 'src/constants';
 import {
   commitment,
   findAssociatedTokenAddress,
@@ -205,7 +206,7 @@ export default function WalletUpdate() {
               new PublicKey(mintAddress),
             );
 
-            if (ata.equals(tokenAccountPubkey)) {
+            if (ata.equals(tokenAccountPubkey) && TokenMap[mintAddress]) {
               tokenAccounts[mintAddress] = {
                 tokenAccountAddress,
                 balance,

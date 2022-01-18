@@ -17,7 +17,7 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { isEmpty } from 'lodash-es';
 
-import { NATIVE_SOL, TokenMap } from 'src/constants';
+import { NATIVE_SOL, TokenList, TokenMap } from 'src/constants';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
@@ -34,19 +34,12 @@ export default function Swap() {
   const [toToken, setToToken] = useState(
     'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // usdc
   );
-  const [fromAmount, setFromAmount] = useState(1);
+  const [fromAmount, setFromAmount] = useState(0);
   const [toAmount, setToAmount] = useState(0);
   const [slippage, setSlippage] = useState(3);
   const [pool, setPool] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-
-  console.log({
-    fromToken,
-    toToken,
-    fromAmount,
-    toAmount,
-  });
 
   useEffect(() => {
     const action = async () => {
@@ -75,7 +68,7 @@ export default function Swap() {
     setIsLoading(true);
     !isEmpty(liquidityPools) && action();
     setIsLoading(false);
-  }, [fromAmount, fromToken, liquidityPools, pool?.ammId, toToken]);
+  }, [fromAmount, fromToken, liquidityPools, pool?.ammId, slippage, toToken]);
 
   const doSwap = useCallback(async () => {
     if (!!pool) {
@@ -149,6 +142,11 @@ export default function Swap() {
                 {TokenMap[k]?.symbol}
               </option>
             ))}
+            {TokenList.filter((k) => !tokenAccounts[k.address]).map((k) => (
+              <option key={k?.address} value={k?.address}>
+                {k?.symbol}
+              </option>
+            ))}
           </Select>
           <NumberInput
             defaultValue={fromAmount}
@@ -174,6 +172,11 @@ export default function Swap() {
             {Object.keys(tokenAccounts).map((k) => (
               <option key={TokenMap[k]?.address} value={TokenMap[k]?.address}>
                 {TokenMap[k]?.symbol}
+              </option>
+            ))}
+            {TokenList.filter((k) => !tokenAccounts[k.address]).map((k) => (
+              <option key={k?.address} value={k?.address}>
+                {k?.symbol}
               </option>
             ))}
           </Select>

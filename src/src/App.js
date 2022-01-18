@@ -20,13 +20,11 @@ export default function App() {
       <Box bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
         sol balance: {solBalance}
       </Box>
-      {Object.keys(tokenAccounts)
-        .filter((k) => !!TokenMap[k])
-        .map((k) => (
-          <Box key={k} bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
-            {TokenMap[k]?.symbol}: {tokenAccounts[k].balance.format()}
-          </Box>
-        ))}
+      {Object.keys(tokenAccounts).map((k) => (
+        <Box key={k} bg="cornflowerblue" maxW="m" m={2} p={4} color="white">
+          {TokenMap[k]?.symbol}: {tokenAccounts[k].balance.format()}
+        </Box>
+      ))}
     </div>
   );
 }
