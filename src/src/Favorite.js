@@ -36,7 +36,7 @@ export default function Favorite(props) {
       >
         ADD FAVORITE
       </Button>
-      {list.map(({ from, to }, idx) => (
+      {list?.map(({ from, to }, idx) => (
         <Box
           key={idx}
           bg="gray"
