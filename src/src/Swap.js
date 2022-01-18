@@ -137,10 +137,12 @@ export default function Swap() {
             value={fromToken}
             onChange={(event) => setFromToken(event.target.value)}
           >
-            <option value={NATIVE_SOL.address}>{NATIVE_SOL.symbol}</option>
+            <option value={NATIVE_SOL.address}>
+              {NATIVE_SOL.symbol} {solBalance}
+            </option>
             {Object.keys(tokenAccounts).map((k) => (
               <option key={TokenMap[k]?.address} value={TokenMap[k]?.address}>
-                {TokenMap[k]?.symbol}
+                {TokenMap[k]?.symbol} {tokenAccounts[k].balance.format()}
               </option>
             ))}
             {TokenList.filter((k) => !tokenAccounts[k.address]).map((k) => (
@@ -180,10 +182,12 @@ export default function Swap() {
             value={toToken}
             onChange={(event) => setToToken(event.target.value)}
           >
-            <option value={NATIVE_SOL.address}>{NATIVE_SOL.symbol}</option>
+            <option value={NATIVE_SOL.address}>
+              {NATIVE_SOL.symbol} {solBalance}
+            </option>
             {Object.keys(tokenAccounts).map((k) => (
               <option key={TokenMap[k]?.address} value={TokenMap[k]?.address}>
-                {TokenMap[k]?.symbol}
+                {TokenMap[k]?.symbol} {tokenAccounts[k].balance.format()}
               </option>
             ))}
             {TokenList.filter((k) => !tokenAccounts[k.address]).map((k) => (
