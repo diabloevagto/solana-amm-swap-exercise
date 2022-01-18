@@ -150,7 +150,7 @@ export default function Swap() {
           </Select>
           <NumberInput
             defaultValue={fromAmount}
-            precision={4}
+            precision={8}
             onChange={(_, valueAsNumber) => setFromAmount(valueAsNumber)}
           >
             <NumberInputField id="fromAmount" />
@@ -183,7 +183,7 @@ export default function Swap() {
           <NumberInput
             disabled
             value={toAmount}
-            precision={4}
+            precision={8}
             onChange={(_, valueAsNumber) => setToAmount(valueAsNumber)}
           >
             <NumberInputField id="toAmount" />
