@@ -1,6 +1,7 @@
 {
   "name": "solana-amm-swap-exercise",
   "version": "0.1.0",
+  "homepage": "https://diabloevagto.github.io/solana-amm-swap-exercise/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
@@ -30,11 +31,13 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0"
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "gh-pages": "^3.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
