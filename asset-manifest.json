@@ -1,32 +1,32 @@
 {
   "files": {
-    "main.js": "/solana-amm-swap-exercise/static/js/main.9adde386.chunk.js",
-    "main.js.map": "/solana-amm-swap-exercise/static/js/main.9adde386.chunk.js.map",
-    "runtime-main.js": "/solana-amm-swap-exercise/static/js/runtime-main.33dc8f6a.js",
-    "runtime-main.js.map": "/solana-amm-swap-exercise/static/js/runtime-main.33dc8f6a.js.map",
+    "main.js": "/solana-amm-swap-exercise/static/js/main.bf58fa03.chunk.js",
+    "main.js.map": "/solana-amm-swap-exercise/static/js/main.bf58fa03.chunk.js.map",
+    "runtime-main.js": "/solana-amm-swap-exercise/static/js/runtime-main.c99e5136.js",
+    "runtime-main.js.map": "/solana-amm-swap-exercise/static/js/runtime-main.c99e5136.js.map",
     "static/css/2.ec1a39f9.chunk.css": "/solana-amm-swap-exercise/static/css/2.ec1a39f9.chunk.css",
-    "static/js/2.71d5e1aa.chunk.js": "/solana-amm-swap-exercise/static/js/2.71d5e1aa.chunk.js",
-    "static/js/2.71d5e1aa.chunk.js.map": "/solana-amm-swap-exercise/static/js/2.71d5e1aa.chunk.js.map",
-    "static/js/3.a8300e13.chunk.js": "/solana-amm-swap-exercise/static/js/3.a8300e13.chunk.js",
-    "static/js/3.a8300e13.chunk.js.map": "/solana-amm-swap-exercise/static/js/3.a8300e13.chunk.js.map",
-    "static/js/4.2bc28d09.chunk.js": "/solana-amm-swap-exercise/static/js/4.2bc28d09.chunk.js",
-    "static/js/4.2bc28d09.chunk.js.map": "/solana-amm-swap-exercise/static/js/4.2bc28d09.chunk.js.map",
+    "static/js/2.79a46e45.chunk.js": "/solana-amm-swap-exercise/static/js/2.79a46e45.chunk.js",
+    "static/js/2.79a46e45.chunk.js.map": "/solana-amm-swap-exercise/static/js/2.79a46e45.chunk.js.map",
+    "static/js/3.b89a4abf.chunk.js": "/solana-amm-swap-exercise/static/js/3.b89a4abf.chunk.js",
+    "static/js/3.b89a4abf.chunk.js.map": "/solana-amm-swap-exercise/static/js/3.b89a4abf.chunk.js.map",
+    "static/js/4.ec93a533.chunk.js": "/solana-amm-swap-exercise/static/js/4.ec93a533.chunk.js",
+    "static/js/4.ec93a533.chunk.js.map": "/solana-amm-swap-exercise/static/js/4.ec93a533.chunk.js.map",
     "static/js/5.39927cf3.chunk.js": "/solana-amm-swap-exercise/static/js/5.39927cf3.chunk.js",
     "static/js/5.39927cf3.chunk.js.map": "/solana-amm-swap-exercise/static/js/5.39927cf3.chunk.js.map",
-    "static/js/6.af662d4f.chunk.js": "/solana-amm-swap-exercise/static/js/6.af662d4f.chunk.js",
-    "static/js/6.af662d4f.chunk.js.map": "/solana-amm-swap-exercise/static/js/6.af662d4f.chunk.js.map",
+    "static/js/6.466626cf.chunk.js": "/solana-amm-swap-exercise/static/js/6.466626cf.chunk.js",
+    "static/js/6.466626cf.chunk.js.map": "/solana-amm-swap-exercise/static/js/6.466626cf.chunk.js.map",
     "static/js/7.ab96b60d.chunk.js": "/solana-amm-swap-exercise/static/js/7.ab96b60d.chunk.js",
     "static/js/7.ab96b60d.chunk.js.map": "/solana-amm-swap-exercise/static/js/7.ab96b60d.chunk.js.map",
     "index.html": "/solana-amm-swap-exercise/index.html",
     "static/css/2.ec1a39f9.chunk.css.map": "/solana-amm-swap-exercise/static/css/2.ec1a39f9.chunk.css.map",
-    "static/js/2.71d5e1aa.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/2.71d5e1aa.chunk.js.LICENSE.txt",
-    "static/js/3.a8300e13.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/3.a8300e13.chunk.js.LICENSE.txt",
-    "static/js/6.af662d4f.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/6.af662d4f.chunk.js.LICENSE.txt"
+    "static/js/2.79a46e45.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/2.79a46e45.chunk.js.LICENSE.txt",
+    "static/js/3.b89a4abf.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/3.b89a4abf.chunk.js.LICENSE.txt",
+    "static/js/6.466626cf.chunk.js.LICENSE.txt": "/solana-amm-swap-exercise/static/js/6.466626cf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.33dc8f6a.js",
+    "static/js/runtime-main.c99e5136.js",
     "static/css/2.ec1a39f9.chunk.css",
-    "static/js/2.71d5e1aa.chunk.js",
-    "static/js/main.9adde386.chunk.js"
+    "static/js/2.79a46e45.chunk.js",
+    "static/js/main.bf58fa03.chunk.js"
   ]
 }
