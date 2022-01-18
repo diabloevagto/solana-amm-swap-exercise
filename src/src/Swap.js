@@ -220,21 +220,21 @@ export default function Swap() {
       </Center>
 
       <FormControl>
-        <FormLabel htmlFor="email">slippage</FormLabel>
-        <Select
-          id="slippage"
-          value={slippage}
-          onChange={(event) => setSlippage(event.target.value)}
-        >
-          {[0.1, 3, 5, 10].map((v) => (
-            <option key={v} value={v}>
-              {v}%
-            </option>
-          ))}
-        </Select>
+        <Flex align="center">
+          <FormLabel htmlFor="email">slippage</FormLabel>
+          <Select
+            id="slippage"
+            value={slippage}
+            onChange={(event) => setSlippage(event.target.value)}
+          >
+            {[0.1, 3, 5, 10].map((v) => (
+              <option key={v} value={v}>
+                {v}%
+              </option>
+            ))}
+          </Select>
+        </Flex>
       </FormControl>
-
-      <p>slippage: {slippage}</p>
 
       {solBalance < 0.02 && (
         <Alert status="error">
