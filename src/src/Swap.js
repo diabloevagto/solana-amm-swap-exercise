@@ -14,7 +14,7 @@ import {
   Select,
   useToast,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { ArrowForwardIcon, ArrowUpDownIcon } from '@chakra-ui/icons';
 import { isEmpty } from 'lodash-es';
 
 import { NATIVE_SOL, TokenList, TokenMap } from 'src/constants';
@@ -159,6 +159,17 @@ export default function Swap() {
         <Box>
           <Center w="40px" h="40px" color="black">
             <ArrowForwardIcon />
+          </Center>
+          <Center w="40px" h="40px" color="black">
+            <ArrowUpDownIcon
+              style={{
+                transform: 'rotate(90deg)',
+              }}
+              onClick={() => {
+                setFromToken(toToken);
+                setToToken(fromToken);
+              }}
+            />
           </Center>
         </Box>
         <FormControl bg="cornflowerblue" flex="1" p={5}>
