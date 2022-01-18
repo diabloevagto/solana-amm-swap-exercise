@@ -24,6 +24,7 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { getPoolByTokenMintAddresses } from 'src/utils/pools';
 import { getSwapOutAmount, swap } from 'src/utils/swap';
 import ContextStore from 'src/store';
+import Favorite from 'src/Favorite';
 
 export default function Swap() {
   const wallet = useWallet();
@@ -235,6 +236,15 @@ export default function Swap() {
           </Select>
         </Flex>
       </FormControl>
+
+      <Favorite
+        from={fromToken}
+        to={toToken}
+        onClick={(from, to) => {
+          setFromToken(from);
+          setToToken(to);
+        }}
+      />
 
       {solBalance < 0.02 && (
         <Alert status="error">
